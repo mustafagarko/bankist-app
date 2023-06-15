@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import TransactionItem from "./transactionItem";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SuccessCard from "./SuccessCard";
 
 function App() {
   const [allTransactions, setTransactions] = useState([]);
@@ -96,8 +97,11 @@ function App() {
     setInputValue({ ...inputValue, [e.target.name]: e.target.value });
   };
 
-  const deleteEL = (index) => {
+  const deleteElement = (index) => {
+    console.log(index);
+
     let temp = [...allTransactions];
+    console.log();
     temp.splice(index, 1);
     setTransactions(temp);
   };
@@ -148,13 +152,13 @@ function App() {
             <h2 className="flex justify-end">History</h2>
             {allTransactions.length
               ? allTransactions.map((e, index) => {
-                  // console.log(">> need to be mapped", e);
+                  console.log(">> need to be mapped", e);
                   return (
-                    <TransactionItem
-                      data={e}
+                    <SuccessCard
                       key={index}
+                      data={e}
+                      deleteEl={deleteElement}
                       index={index}
-                      deleteEl={deleteEL}
                     />
                   );
                 })
@@ -257,13 +261,21 @@ function App() {
 
             {allTransactions.length
               ? allTransactions.map((e, index) => {
-                  // console.log(">> need to be mapped", e);
+                  console.log(">> need to be mapped", e);
+                  // return (
+                  //   <TransactionItem
+                  //     data={e}
+                  //     key={index}
+                  //     index={index}
+                  //     deleteEl={deleteElement}
+                  //   />
+                  // );
                   return (
-                    <TransactionItem
-                      data={e}
+                    <SuccessCard
                       key={index}
+                      data={e}
+                      deleteEl={deleteElement}
                       index={index}
-                      deleteEl={deleteEL}
                     />
                   );
                 })
