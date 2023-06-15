@@ -6,4 +6,23 @@
   h1 {
     @apply text-3xl md:text-4xl lg:text-5xl xl:text-6xl  font-bold;
   }
+
+  h2 {
+    @apply font-bold font-sans
+    text-[#632C3B] uppercase;
+  }
+  button {
+    @apply scale-100 
+    active:scale-90 transition-all uppercase px-14 py-3 rounded-full text-white font-bold;
+  }
+}
+
+input {
+  @apply rounded-2xl h-10;
+}
+
+@layer components {
+  .hidden {
+    opacity: 0;
+  }
 }
